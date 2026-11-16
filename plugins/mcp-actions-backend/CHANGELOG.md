@@ -1,5 +1,13 @@
 # @backstage/plugin-mcp-actions-backend
 
+## 0.2.4-next.3
+
+### Patch Changes
+
+- 9e22c4b: OAuth discovery metadata is now also served when pre-registered clients are configured with `auth.staticClients`.
+- Updated dependencies
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 0.2.4-next.2
 
 ### Patch Changes

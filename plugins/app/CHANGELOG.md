@@ -1,5 +1,28 @@
 # @backstage/plugin-app
 
+## 0.6.0-next.3
+
+### Minor Changes
+
+- f9f794b: **BREAKING**: Icon bundles created with `IconBundleBlueprint` now accept only icon elements. Replace component values such as `icons: { user: MyIcon }` with `icons: { user: <MyIcon /> }`. For Material UI icons, use `<MyIcon fontSize="inherit" />`. Icons supplied through `convertLegacyAppOptions` continue to accept components and are converted automatically.
+
+### Patch Changes
+
+- edf309d: Ensure dismissed toasts are marked as closed in `ToastApiForwarder` so they are not replayed when `ToastDisplay` remounts (such as during theme changes).
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- ff23578: Added support for translated titles in navigation, page headers, tabs, and breadcrumbs.
+- Updated dependencies
+  - @backstage/plugin-app-react@0.3.0-next.3
+  - @backstage/core-components@0.18.16-next.2
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/integration-react@1.3.0-next.2
+  - @backstage/plugin-permission-react@0.5.7-next.2
+  - @backstage/theme@0.7.4-next.0
+  - @backstage/version-bridge@1.1.0-next.0
+  - @backstage/ui@0.20.0-next.1
+  - @backstage/core-plugin-api@1.13.0-next.3
+
 ## 0.6.0-next.2
 
 ### Minor Changes

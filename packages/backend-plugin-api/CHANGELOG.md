@@ -1,5 +1,11 @@
 # @backstage/backend-plugin-api
 
+## 1.12.0-next.2
+
+### Minor Changes
+
+- 6a0de59: Added support for passing a file URL string, such as `import.meta.url`, to `resolvePackagePath` to resolve assets relative to the containing package without specifying its name. The nearest ancestor directory containing `package.json` is used as the package root.
+
 ## 1.12.0-next.1
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @backstage/frontend-adapter-tanstack-router
 
+## 0.2.0-next.1
+
+### Patch Changes
+
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/version-bridge@1.1.0-next.0
+
 ## 0.2.0-next.0
 
 ### Minor Changes

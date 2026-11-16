@@ -1,5 +1,16 @@
 # @backstage/repo-tools
 
+## 0.19.3-next.2
+
+### Patch Changes
+
+- 11437a9: The `type-deps` command now fails with a clear error when no packages with built type declarations are found, instead of silently passing. Make sure to build all packages before running it.
+- 7d58727: The peer dependency checks now expect React 18 for frontend packages, following the removal of React 17 support across the workspace. The old frontend system core packages continue to allow React 17.
+- fbb676e: The `package schema openapi generate` command now exits with a non-zero code when client or server generation fails, for example when linting the generated code fails. Previously the failure was logged but the command still exited with code 0. Watch mode is unaffected and keeps watching after a failed generation.
+- Updated dependencies
+  - @backstage/cli-node@0.3.6-next.3
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 0.19.3-next.1
 
 ### Patch Changes

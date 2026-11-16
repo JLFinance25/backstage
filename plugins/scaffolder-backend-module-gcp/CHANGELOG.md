@@ -1,5 +1,14 @@
 # @backstage/plugin-scaffolder-backend-module-gcp
 
+## 0.3.0-next.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/integration@2.2.0-next.1
+  - @backstage/backend-plugin-api@1.12.0-next.2
+  - @backstage/plugin-scaffolder-node@1.0.0-next.3
+
 ## 0.3.0-next.1
 
 ### Patch Changes

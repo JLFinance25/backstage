@@ -1,5 +1,21 @@
 # @backstage/backend-defaults
 
+## 0.19.0-next.3
+
+### Minor Changes
+
+- 3beb656: **BREAKING**: Request logs from the root HTTP router no longer include a `date` field, and no longer repeat the date at the start of the message. JSON logs, used when `NODE_ENV` is `production`, now include a `timestamp` field on every log line instead. Update any log pipelines or dashboards that read `date` or parse the date out of the message to use `timestamp`.
+
+  If you override the root logger with a custom JSON format, use `format.combine(format.timestamp(), format.json())` to keep the `timestamp` field.
+
+### Patch Changes
+
+- 392710f: The Azure DevOps URL reader now warns at startup when a personal access token is configured for Azure DevOps Services. Global personal access tokens [stop working on January 27, 2027](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/), and organization-scoped tokens are now deprecated in favor of Microsoft Entra ID credentials. Errors from rejected credentials are also clearer.
+- fbd2535: Fixed a connection and memory leak in the GitHub URL reader, where every failed request with a large error response body, such as the error pages served during a GitHub Enterprise outage, left its connection open indefinitely.
+- Updated dependencies
+  - @backstage/integration@2.2.0-next.1
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 0.19.0-next.2
 
 ### Minor Changes

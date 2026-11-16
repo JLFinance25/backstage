@@ -1,5 +1,41 @@
 # @backstage/frontend-plugin-api
 
+## 0.19.0-next.3
+
+### Minor Changes
+
+- 5a539ca: **BREAKING**: The `pluginId` property of plugins passed as a `FrontendFeature` is now required. Plugins built against framework versions that predate `pluginId` must be rebuilt against a current version.
+- 0a552cf: **BREAKING**: Removed the `ExtensionAttachTo` type export. Use `Extension<unknown>['attachTo']` if you need to reference the attachment type.
+- 8ae0b8e: **BREAKING**: Removed the deprecated `IconComponent` export. Use `IconElement` and pass `<MyIcon />` rather than `MyIcon` when working with icons in the new frontend system. Legacy integrations that still need a component type can import `IconComponent` from `@backstage/core-plugin-api`. Auth provider icons continue to accept components with the same optional `fontSize` prop.
+- 806a9cf: **BREAKING**: Removed the `/alpha` entry point. All of its exports are already available from `@backstage/frontend-plugin-api`; update imports to use the main entry point instead:
+
+  ```diff
+  -import { PluginWrapperBlueprint } from '@backstage/frontend-plugin-api/alpha';
+  +import { PluginWrapperBlueprint } from '@backstage/frontend-plugin-api';
+  ```
+
+  The exported APIs retain the same behavior and identity. For the deprecated `pluginWrapperApiRef`, prefer `coreApis.pluginWrapper` from the main entry point.
+
+- 0f2ffc9: **BREAKING**: Removed the `ProgressProps` type. Replace imports and usages of this type with its existing shape, `{}`. The `Progress` component and its props contract are unchanged.
+- 7285912: **BREAKING PRODUCERS**: `TranslationSnapshot` now requires `t` even when `ready` is false. Custom `TranslationApi` implementations must provide a translator using available messages and language fallbacks.
+
+### Patch Changes
+
+- d5e1d51: Deprecated `AnyApiRef` and `AnyApiFactory`. Use `ApiRef` and `ApiFactory` without type arguments instead; their new defaults match the existing aliases. The deprecated aliases remain available for compatibility.
+- d47986a: Improved type inference for deeply nested and cyclic translation messages. Required replacement values and plural counts are inferred at any depth, and count interpolation requires a numeric value.
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- 6928d62: Fixed swappable components losing their mounted state when their props change. The resolved component remains stable while its props update.
+- 641ac02: Added `coreExtensionData.titleTranslation` to provide a translation message selection alongside a static title. Consumers can opt in to translated titles. The selection must not require formatting values.
+- 7594fd4: Page and sub-page blueprints now accept typed translation message selections in their `title` parameter, using existing translation resources. Select a message by calling a translation ref, for example `myTranslationRef('page.title')`. TypeScript checks the key and rejects messages that require formatting values.
+
+  Resolved translations take precedence over configured titles in every language, including the default language. Titles wait for the selected language on first load and retain resolved values during later loads or failures, preserving page state.
+
+  `TranslationRef` values are now callable functions. Treat refs as opaque values rather than checking for plain objects or cloning them.
+
+- Updated dependencies
+  - @backstage/version-bridge@1.1.0-next.0
+
 ## 0.19.0-next.2
 
 ### Minor Changes

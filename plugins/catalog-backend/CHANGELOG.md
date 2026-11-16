@@ -1,5 +1,20 @@
 # @backstage/plugin-catalog-backend
 
+## 4.0.3-next.3
+
+### Patch Changes
+
+- 2c223ee: Fixed a `Item of type "refresh" was emitted after processing had completed` warning that could appear when one of several placeholders in an entity failed to resolve. Processing now waits for all placeholders to finish before reporting the first failure.
+- cd5fa5f: Improved the performance of entity queries on PostgreSQL when a filter matches a field against a long list of values, such as the ownership claims used by conditional permission policies for catalog entity reads.
+- 32e6642: Adds internal publication bookkeeping as groundwork for future catalog change tracking. Existing catalog APIs and deletion behavior are unchanged.
+
+  The PostgreSQL upgrade builds an index concurrently without rewriting existing entities, but still scans the catalog table. Large installations may need to prepare this index out of band before upgrading; see [Upgrading large installations](https://github.com/backstage/backstage/blob/master/plugins/catalog-backend/README.md#upgrading-large-installations).
+
+- 6a0de59: Backend plugins now locate their database migrations relative to their own package directory, without requiring the package to be resolvable by name.
+- Updated dependencies
+  - @backstage/integration@2.2.0-next.1
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 4.0.3-next.2
 
 ### Patch Changes

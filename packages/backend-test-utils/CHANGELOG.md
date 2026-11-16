@@ -1,5 +1,14 @@
 # @backstage/backend-test-utils
 
+## 1.12.0-next.3
+
+### Patch Changes
+
+- ee1c5af: `registerMswTestHooks` now also fails tests on unhandled requests when used with msw 3.
+- Updated dependencies
+  - @backstage/backend-defaults@0.19.0-next.3
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 1.12.0-next.2
 
 ### Minor Changes

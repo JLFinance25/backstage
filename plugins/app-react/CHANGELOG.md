@@ -1,5 +1,19 @@
 # @backstage/plugin-app-react
 
+## 0.3.0-next.3
+
+### Minor Changes
+
+- f9f794b: **BREAKING**: Icon bundles created with `IconBundleBlueprint` now accept only icon elements. Replace component values such as `icons: { user: MyIcon }` with `icons: { user: <MyIcon /> }`. For Material UI icons, use `<MyIcon fontSize="inherit" />`. Icons supplied through `convertLegacyAppOptions` continue to accept components and are converted automatically.
+
+### Patch Changes
+
+- 77c1622: Added the `AnalyticsImplementation` type, moved from `@backstage/frontend-plugin-api`, alongside `AnalyticsImplementationBlueprint` and `AnalyticsImplementationFactory`.
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/core-plugin-api@1.13.0-next.3
+
 ## 0.3.0-next.2
 
 ### Minor Changes

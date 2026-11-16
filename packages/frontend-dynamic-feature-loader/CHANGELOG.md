@@ -1,5 +1,15 @@
 # @backstage/frontend-dynamic-feature-loader
 
+## 0.1.18-next.3
+
+### Patch Changes
+
+- 27b7aaa: Support loading remote frontend features whose default export is a `FrontendFeatureLoader` and include that feature type in generated package metadata.
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/module-federation-common@0.1.7-next.1
+
 ## 0.1.18-next.2
 
 ### Patch Changes

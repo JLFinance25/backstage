@@ -1,5 +1,16 @@
 # @backstage/frontend-dev-utils
 
+## 0.1.8-next.3
+
+### Patch Changes
+
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/plugin-app@0.6.0-next.3
+  - @backstage/frontend-defaults@0.5.8-next.3
+  - @backstage/ui@0.20.0-next.1
+
 ## 0.1.8-next.2
 
 ### Patch Changes

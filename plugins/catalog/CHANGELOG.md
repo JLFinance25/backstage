@@ -1,5 +1,30 @@
 # @backstage/plugin-catalog
 
+## 2.1.0-next.3
+
+### Minor Changes
+
+- d4f458e: Added support for translated entity content titles through `EntityContentBlueprint`.
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+
+### Patch Changes
+
+- 57111dc: Migrated the `EntityNotFound` component from Material UI to Backstage UI.
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- Updated dependencies
+  - @backstage/core-components@0.18.16-next.2
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/plugin-catalog-react@4.0.0-next.3
+  - @backstage/integration-react@1.3.0-next.2
+  - @backstage/plugin-permission-react@0.5.7-next.2
+  - @backstage/plugin-search-react@1.12.0-next.3
+  - @backstage/plugin-techdocs-react@1.5.0-next.3
+  - @backstage/version-bridge@1.1.0-next.0
+  - @backstage/ui@0.20.0-next.1
+  - @backstage/core-plugin-api@1.13.0-next.3
+  - @backstage/plugin-scaffolder-common@2.4.0-next.2
+  - @backstage/core-compat-api@0.6.0-next.3
+
 ## 2.0.11-next.2
 
 ### Patch Changes

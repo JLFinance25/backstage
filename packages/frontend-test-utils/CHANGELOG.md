@@ -1,5 +1,23 @@
 # @backstage/frontend-test-utils
 
+## 0.7.0-next.3
+
+### Patch Changes
+
+- 4bbc7a9: Removed explicit support for React 17: the peer dependency range for `react`, `react-dom` and `@types/react` is now `^18.0.0`. React 17 is no longer tested or guaranteed to work, although it may continue to work in some cases. See the [migration guide](https://backstage.io/docs/frontend-system/architecture/migrations#157).
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- ec245df: Added `apis` to the results of `renderInTestApp` and `renderTestApp`, providing access to the app's Utility APIs using API refs. The holder exposes the same instances used by components, including registered APIs and test overrides.
+- Updated dependencies
+  - @backstage/plugin-app-react@0.3.0-next.3
+  - @backstage/frontend-plugin-api@0.19.0-next.3
+  - @backstage/plugin-app@0.6.0-next.3
+  - @backstage/test-utils@1.8.0-next.2
+  - @backstage/frontend-app-api@0.17.0-next.3
+  - @backstage/plugin-permission-react@0.5.7-next.2
+  - @backstage/version-bridge@1.1.0-next.0
+  - @backstage/core-app-api@1.20.7-next.3
+  - @backstage/core-plugin-api@1.13.0-next.3
+
 ## 0.7.0-next.2
 
 ### Minor Changes

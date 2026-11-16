@@ -1,5 +1,15 @@
 # @backstage/plugin-catalog-backend-module-incremental-ingestion
 
+## 0.9.1-next.3
+
+### Patch Changes
+
+- 6a0de59: Backend plugins now locate their database migrations relative to their own package directory, without requiring the package to be resolvable by name.
+- Updated dependencies
+  - @backstage/backend-defaults@0.19.0-next.3
+  - @backstage/plugin-catalog-backend@4.0.3-next.3
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 0.9.1-next.2
 
 ### Patch Changes

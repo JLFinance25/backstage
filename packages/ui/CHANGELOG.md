@@ -1,5 +1,13 @@
 # @backstage/ui
 
+## 0.20.0-next.1
+
+### Patch Changes
+
+- 9d0a31b: Removed an unused `use-sync-external-store` dependency, which is no longer needed now that React 18 is the minimum supported version.
+- Updated dependencies
+  - @backstage/version-bridge@1.1.0-next.0
+
 ## 0.20.0-next.0
 
 ### Minor Changes

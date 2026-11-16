@@ -1,5 +1,13 @@
 # @backstage/plugin-events-backend
 
+## 0.6.8-next.3
+
+### Patch Changes
+
+- 6a0de59: Backend plugins now locate their database migrations relative to their own package directory, without requiring the package to be resolvable by name.
+- Updated dependencies
+  - @backstage/backend-plugin-api@1.12.0-next.2
+
 ## 0.6.8-next.2
 
 ### Patch Changes

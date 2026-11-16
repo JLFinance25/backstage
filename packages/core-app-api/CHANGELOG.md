@@ -1,5 +1,15 @@
 # @backstage/core-app-api
 
+## 1.20.7-next.3
+
+### Patch Changes
+
+- 7285912: Translation snapshots now provide `t` while resources are loading, using available messages and language fallbacks. Check `ready` before rendering to wait for the selected language.
+- Updated dependencies
+  - @backstage/version-bridge@1.1.0-next.0
+  - @backstage/ui@0.20.0-next.1
+  - @backstage/core-plugin-api@1.13.0-next.3
+
 ## 1.20.7-next.2
 
 ### Patch Changes
