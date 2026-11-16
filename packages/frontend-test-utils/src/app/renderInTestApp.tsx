@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { useSyncExternalStore, type ReactNode } from 'react';
+import { Suspense, useSyncExternalStore, type ReactNode } from 'react';
 import {
   type AppError,
   prepareSpecializedApp,
@@ -86,7 +86,8 @@ export type TestAppOptions<TApiPairs extends any[] = any[]> = {
   config?: JsonObject;
 
   /**
-   * Additional features to add to the test app.
+   * Additional features to add to the test app. Test rendering extensions are
+   * retained when features include a plugin named `test`.
    */
   features?: FrontendFeature[];
 
@@ -203,6 +204,11 @@ function TestAppPage({
  * @public
  * Renders the given element in a test app, for use in unit tests.
  *
+ * Content that suspends renders nothing until it is ready. Only that content
+ * needs asynchronous queries such as `findByText`; synchronous content remains
+ * available immediately. Supply a Suspense boundary inside the element for a
+ * custom fallback. The Suspense boundary does not catch rendering errors.
+ *
  * Navigation is owned by a {@link @backstage/frontend-plugin-api#AppHistoryApi}
  * with in-memory history, the same seam as production. Access it through
  * `apis.get(appHistoryApiRef)` on the render result.
@@ -237,8 +243,9 @@ export function renderInTestApp<const TApiPairs extends any[] = any[]>(
         : { id: 'app/root', input: 'children' },
       output: [coreExtensionData.reactElement],
       factory: ({ node }) => {
+        const suspendedElement = <Suspense fallback={null}>{element}</Suspense>;
         if (asChrome) {
-          return [coreExtensionData.reactElement(element)];
+          return [coreExtensionData.reactElement(suspendedElement)];
         }
         const routePath =
           mountPath.replace(/\/\*$/, '').replace(/\/$/, '') || '/';
@@ -261,7 +268,7 @@ export function renderInTestApp<const TApiPairs extends any[] = any[]>(
             ]}
           >
             <TestAppPage node={node}>
-              <ExtensionBoundary node={node}>{element}</ExtensionBoundary>
+              <ExtensionBoundary node={node}>{suspendedElement}</ExtensionBoundary>
             </TestAppPage>
           </TestRouteResolver>
         );
